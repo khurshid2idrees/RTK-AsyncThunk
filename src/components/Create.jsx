@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const Create = () => {
+  const [users, setUsers] = useState({});
+
+  setUsers({...users,[e.target.name]:e.target.value})
+
+
   return (
     <>
       <div>
@@ -10,34 +15,59 @@ export const Create = () => {
               Name
             </label>
             <input
-              type="email"
+              type="text"
+              onChange={getUserData}
+              name="name"
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
-            
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">
-              Password
+              Email
             </label>
             <input
-              type="password"
+              type="email"
+              name="email"
               class="form-control"
               id="exampleInputPassword1"
             />
           </div>
-          <div class="mb-3 form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1">
-              Check me out
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">
+              Age
             </label>
+            <input
+              type="text"
+              name="age"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
           </div>
-          <button type="submit" class="btn btn-primary">
+
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              value={`male`}
+              id="flexRadioDefault1"
+            />
+            <label class="form-check-label">Male</label>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              value={`female`}
+              id="flexRadioDefault2"
+              checked
+            />
+            <label class="form-check-label">Female</label>
+          </div>
+          <button type="submit" class="btn btn-primary ">
             Submit
           </button>
         </form>

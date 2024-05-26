@@ -30,10 +30,11 @@ export const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link active" aria-current="page" href="#">
                   Link
                 </a>
               </li>
+              
             </ul>
             <form className="d-flex" role="search">
               <input
