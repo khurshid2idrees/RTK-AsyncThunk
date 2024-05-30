@@ -3,8 +3,9 @@ import React, { useState } from "react";
 export const Create = () => {
   const [users, setUsers] = useState({});
 
-  setUsers({...users,[e.target.name]:e.target.value})
-
+  const getUserData = (e) => {
+    setUsers({ ...users, [e.target.name]: e.target.value });
+  };
 
   return (
     <>
@@ -29,6 +30,7 @@ export const Create = () => {
             </label>
             <input
               type="email"
+              onChange={getUserData}
               name="email"
               class="form-control"
               id="exampleInputPassword1"
@@ -41,6 +43,7 @@ export const Create = () => {
             <input
               type="text"
               name="age"
+              onChange={{ getUserData }}
               class="form-control"
               id="exampleInputPassword1"
             />
@@ -50,6 +53,7 @@ export const Create = () => {
             <input
               class="form-check-input"
               type="radio"
+              onChange={{ getUserData }}
               name="gender"
               value={`male`}
               id="flexRadioDefault1"
@@ -60,6 +64,7 @@ export const Create = () => {
             <input
               class="form-check-input"
               type="radio"
+              onChange={{ getUserData }}
               name="gender"
               value={`female`}
               id="flexRadioDefault2"
