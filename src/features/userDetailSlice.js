@@ -30,6 +30,10 @@ export const userDetail = createSlice({
     loading: true,
     error: null,
   },
+  reducers: {
+    // put reducers here
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(createUser.pending, (state) => {
@@ -41,6 +45,7 @@ export const userDetail = createSlice({
       })
       .addCase(createUser.rejected, (state, action) => {
         state.loading = false;
+        state.error = action.payload;
       });
   },
 });
