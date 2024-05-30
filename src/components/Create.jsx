@@ -1,16 +1,27 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createUser } from "../features/userDetailSlice";
 
 export const Create = () => {
   const [users, setUsers] = useState({});
+
+  const dispatch = useDispatch();
 
   const getUserData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("users...", users);
+    dispatch(createUser(users));
+  };
+
   return (
     <>
       <div>
-        <form className="w-50 mx-auto my-5">
+        <form className="w-50 mx-auto my-5" onSubmit={handleSubmit}>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">
               Name
@@ -43,7 +54,7 @@ export const Create = () => {
             <input
               type="text"
               name="age"
-              onChange={{ getUserData }}
+              onChange={getUserData}
               class="form-control"
               id="exampleInputPassword1"
             />
@@ -53,7 +64,7 @@ export const Create = () => {
             <input
               class="form-check-input"
               type="radio"
-              onChange={{ getUserData }}
+              onChange={getUserData}
               name="gender"
               value={`male`}
               id="flexRadioDefault1"
@@ -64,7 +75,7 @@ export const Create = () => {
             <input
               class="form-check-input"
               type="radio"
-              onChange={{ getUserData }}
+              onChange={getUserData}
               name="gender"
               value={`female`}
               id="flexRadioDefault2"
