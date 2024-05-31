@@ -9,7 +9,7 @@ export const createUser = createAsyncThunk(
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "content-Type": "application/json",
         },
         body: JSON.stringify(data),
       }
@@ -17,6 +17,7 @@ export const createUser = createAsyncThunk(
 
     try {
       const result = await response.json();
+      return result;
     } catch (error) {
       return rejectWithValue(error);
     }
