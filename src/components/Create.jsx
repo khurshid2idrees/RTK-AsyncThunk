@@ -3,19 +3,29 @@ import { useDispatch } from "react-redux";
 import { createUser } from "../features/userDetailSlice";
 
 export const Create = () => {
-  const [users, setUsers] = useState({});
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [age, setAge] = useState();
+  const [gender, setGender] = useState("male");
 
   const dispatch = useDispatch();
 
-  const getUserData = (e) => {
-    setUsers({ ...users, [e.target.name]: e.target.value });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    const user = {
+      name,
+      email,
+      age,
+      gender,
+    };
 
-    console.log("users...", users);
-    dispatch(createUser(users));
+    dispatch(createUser(user));
+
+    // reset here
+    setName("");
+    setEmail("");
+    setAge("");
+    setGender("");
   };
 
   return (
@@ -28,7 +38,8 @@ export const Create = () => {
             </label>
             <input
               type="text"
-              onChange={getUserData}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               name="name"
               class="form-control"
               id="exampleInputEmail1"
@@ -41,7 +52,8 @@ export const Create = () => {
             </label>
             <input
               type="email"
-              onChange={getUserData}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               name="email"
               class="form-control"
               id="exampleInputPassword1"
@@ -52,9 +64,10 @@ export const Create = () => {
               Age
             </label>
             <input
-              type="text"
+              type="number"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
               name="age"
-              onChange={getUserData}
               class="form-control"
               id="exampleInputPassword1"
             />
@@ -63,10 +76,11 @@ export const Create = () => {
           <div class="form-check mb-3">
             <input
               class="form-check-input"
+              onChange={(e) => setGender(e.target.value)}
+              value={"male"}
               type="radio"
-              onChange={getUserData}
               name="gender"
-              value={`male`}
+              checked={gender === "male"}
               id="flexRadioDefault1"
             />
             <label class="form-check-label">Male</label>
@@ -74,12 +88,12 @@ export const Create = () => {
           <div class="form-check mb-3">
             <input
               class="form-check-input"
+              onChange={(e) => setGender(e.target.value)}
               type="radio"
-              onChange={getUserData}
+              value={"female"}
               name="gender"
-              value={`female`}
+              checked={gender === "female"}
               id="flexRadioDefault2"
-              checked
             />
             <label class="form-check-label">Female</label>
           </div>
