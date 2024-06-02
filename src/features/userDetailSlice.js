@@ -24,6 +24,8 @@ export const createUser = createAsyncThunk(
   }
 );
 
+// show user action
+
 export const showUser = createAsyncThunk(
   "showUser",
   async (_, { rejectWithValue }) => {

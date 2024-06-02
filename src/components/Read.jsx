@@ -24,17 +24,17 @@ const Read = () => {
           {users.map((user) => {
             return (
               <div className="card w-50  mx-auto mt-5">
-                <div className="card-body">
+                <div className="card-body text-center">
                   <h5 className="card-title">{user.name}</h5>
                   <h6 className="card-subtitle mb-2 text-body-secondary">
                     {user.email}
                   </h6>
                   <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    {user.age}
                   </p>
-                  <div className="card-link">{user.age}</div>
-                  <div className="">{user.gender}</div>
+                  <a href="" className="card-link">View</a>
+                  <a href="" className="card-link">Edit</a>
+                  <a href="" className="card-link">Delete</a>
                 </div>
               </div>
             );
