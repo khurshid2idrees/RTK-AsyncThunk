@@ -27,7 +27,7 @@ export const createUser = createAsyncThunk(
 // read action
 export const showUser = createAsyncThunk(
   "showUser",
-  async (args,{ rejectWithValue }) => {
+  async (args, { rejectWithValue }) => {
     const response = await fetch(
       "https://66535be5813d78e6d6d80e4c.mockapi.io/crud"
     );
