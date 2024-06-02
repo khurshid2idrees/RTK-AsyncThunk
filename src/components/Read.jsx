@@ -33,12 +33,8 @@ const Read = () => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </p>
-                  <a href="#" className="card-link">
-                    {user.age}
-                  </a>
-                  <a href="#" className="card-link">
-                    {user.gender}
-                  </a>
+                  <div className="card-link">{user.age}</div>
+                  <div className="">{user.gender}</div>
                 </div>
               </div>
             );
