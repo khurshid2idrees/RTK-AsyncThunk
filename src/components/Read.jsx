@@ -1,9 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showUser } from "../features/userDetailSlice";
+import CustomModel from "./CustomModel";
 
 const Read = () => {
   const dispatch = useDispatch();
+
+  const [id, setId] = useState();
+  const [showPopup, setShowPopup] = useState(false);
 
   const { users, loading } = useSelector((state) => state.app);
 
@@ -18,23 +22,38 @@ const Read = () => {
   return (
     <>
       <div>
+        {showPopup && (
+          <CustomModel
+            id={id}
+            showPopup={showPopup}
+            setShowPopup={setShowPopup}
+          />
+        )}
         <h2 className="text-center">All Data</h2>
 
         <div>
           {users.map((user) => {
             return (
-              <div className="card w-50  mx-auto mt-5">
+              <div key={user.id} className="card w-50  mx-auto mt-5">
                 <div className="card-body text-center">
                   <h5 className="card-title">{user.name}</h5>
                   <h6 className="card-subtitle mb-2 text-body-secondary">
                     {user.email}
                   </h6>
-                  <p className="card-text">
-                    {user.age}
-                  </p>
-                  <a href="" className="card-link">View</a>
-                  <a href="" className="card-link">Edit</a>
-                  <a href="" className="card-link">Delete</a>
+                  <p className="card-text">{user.age}</p>
+                  <button
+                    href=""
+                    className="card-link"
+                    onClick={() => [setId(user.id), setShowPopup(true)]}
+                  >
+                    View
+                  </button>
+                  <a href="" className="card-link">
+                    Edit
+                  </a>
+                  <a href="" className="card-link">
+                    Delete
+                  </a>
                 </div>
               </div>
             );
