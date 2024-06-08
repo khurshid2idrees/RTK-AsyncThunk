@@ -11,9 +11,9 @@ const Read = () => {
 
   const { users, loading } = useSelector((state) => state.app);
 
-  useEffect(() => {
-    dispatch(showUser());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(showUser());
+  // }, []);
 
   if (loading) {
     return <h2>Loadding</h2>;
