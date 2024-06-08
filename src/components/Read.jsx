@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { showUser } from "../features/userDetailSlice";
 import CustomModel from "./CustomModel";
+import { deleteUser } from "../features/userDetailSlice";
 
 const Read = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,12 @@ const Read = () => {
   if (loading) {
     return <h2>Loadding</h2>;
   }
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+
+    dispatch(deleteUser(id));
+  };
 
   return (
     <>
@@ -51,9 +58,12 @@ const Read = () => {
                   <a href="" className="card-link">
                     Edit
                   </a>
-                  <a href="" className="card-link">
+                  <button
+                    onClick={(e) => handleDelete(e, user.id)}
+                    className="card-link"
+                  >
                     Delete
-                  </a>
+                  </button>
                 </div>
               </div>
             );
