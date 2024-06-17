@@ -63,6 +63,27 @@ export const deleteUser = createAsyncThunk(
   }
 );
 
+// fetch user details by id
+
+export const EditUser = createAsyncThunk(
+  "EditUser",
+  async (data, { rejectWithValue }) => {
+    const response = await fetch(
+      `https://66535be5813d78e6d6d80e4c.mockapi.io/crud/`,
+      {
+        method: "GET",
+      }
+    );
+
+    try {
+      const result = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 export const userDetail = createSlice({
   name: "userDetails",
   initialState: {
