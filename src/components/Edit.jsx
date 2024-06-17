@@ -14,11 +14,12 @@ export const Edit = () => {
     if (users.length) {
       const singleUser = users.filter((ele) => ele.id === id);
 
-      setUpdateData(singleUser);
+      setUpdateData(singleUser[0]);
     }
   }, [users, id]);
 
-  console.log(updateData, "kd");
+
+  // console.log(updateData, "kd");
 
   return (
     <>
@@ -31,7 +32,7 @@ export const Edit = () => {
             </label>
             <input
               type="text"
-              value={updateData && updateData[0].name}
+              value={updateData && updateData.name}
               name="name"
               className="form-control"
               id="exampleInputEmail1"
@@ -44,7 +45,7 @@ export const Edit = () => {
             </label>
             <input
               type="email"
-              value={updateData && updateData[0].email}
+              value={updateData && updateData.email}
               name="email"
               className="form-control"
               id="exampleInputPassword1"
@@ -56,7 +57,7 @@ export const Edit = () => {
             </label>
             <input
               type="number"
-              value={updateData && updateData[0].age}
+              value={updateData && updateData.age}
               name="age"
               className="form-control"
               id="exampleInputPassword1"
@@ -67,7 +68,7 @@ export const Edit = () => {
             <input
               className="form-check-input"
               value={"male"}
-              checked={updateData && updateData[0].gender === "male"}
+              checked={updateData && updateData.gender === "male"}
               type="radio"
               name="gender"
               // checked={gender === "male"}
@@ -78,7 +79,7 @@ export const Edit = () => {
           <div className="form-check mb-3">
             <input
               className="form-check-input"
-              checked={updateData && updateData[0].gender === "female"}
+              checked={updateData && updateData.gender === "female"}
               type="radio"
               value={"female"}
               name="gender"
