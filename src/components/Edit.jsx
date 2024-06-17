@@ -25,47 +25,47 @@ export const Edit = () => {
       <div>
         <h2 className="text-center mt-2">Fill the data</h2>
         <form className="w-50 mx-auto my-5">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Name
             </label>
             <input
               type="text"
               value={updateData && updateData[0].name}
               name="name"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Email
             </label>
             <input
               type="email"
               value={updateData && updateData[0].email}
               name="email"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Age
             </label>
             <input
               type="number"
               value={updateData && updateData[0].age}
               name="age"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
             />
           </div>
 
-          <div class="form-check mb-3">
+          <div className="form-check mb-3">
             <input
-              class="form-check-input"
+              className="form-check-input"
               value={"male"}
               checked={updateData && updateData[0].gender === "male"}
               type="radio"
@@ -73,11 +73,11 @@ export const Edit = () => {
               // checked={gender === "male"}
               id="flexRadioDefault1"
             />
-            <label class="form-check-label">Male</label>
+            <label className="form-check-label">Male</label>
           </div>
-          <div class="form-check mb-3">
+          <div className="form-check mb-3">
             <input
-              class="form-check-input"
+              className="form-check-input"
               checked={updateData && updateData[0].gender === "female"}
               type="radio"
               value={"female"}
@@ -85,9 +85,9 @@ export const Edit = () => {
               // checked={gender === "female"}
               id="flexRadioDefault2"
             />
-            <label class="form-check-label">Female</label>
+            <label className="form-check-label">Female</label>
           </div>
-          <button type="submit" class="btn btn-primary ">
+          <button type="submit" className="btn btn-primary ">
             Submit
           </button>
         </form>

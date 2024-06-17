@@ -32,8 +32,8 @@ export const Create = () => {
       <div>
         <h2 className="text-center mt-2">Fill the data</h2>
         <form className="w-50 mx-auto my-5" onSubmit={handleSubmit}>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Name
             </label>
             <input
@@ -41,13 +41,13 @@ export const Create = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               name="name"
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Email
             </label>
             <input
@@ -55,12 +55,12 @@ export const Create = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               name="email"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Age
             </label>
             <input
@@ -68,14 +68,14 @@ export const Create = () => {
               value={age}
               onChange={(e) => setAge(e.target.value)}
               name="age"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
             />
           </div>
 
-          <div class="form-check mb-3">
+          <div className="form-check mb-3">
             <input
-              class="form-check-input"
+              className="form-check-input"
               onChange={(e) => setGender(e.target.value)}
               value={"male"}
               type="radio"
@@ -83,11 +83,11 @@ export const Create = () => {
               checked={gender === "male"}
               id="flexRadioDefault1"
             />
-            <label class="form-check-label">Male</label>
+            <label className="form-check-label">Male</label>
           </div>
-          <div class="form-check mb-3">
+          <div className="form-check mb-3">
             <input
-              class="form-check-input"
+              className="form-check-input"
               onChange={(e) => setGender(e.target.value)}
               type="radio"
               value={"female"}
@@ -95,9 +95,9 @@ export const Create = () => {
               checked={gender === "female"}
               id="flexRadioDefault2"
             />
-            <label class="form-check-label">Female</label>
+            <label className="form-check-label">Female</label>
           </div>
-          <button type="submit" class="btn btn-primary ">
+          <button type="submit" className="btn btn-primary ">
             Submit
           </button>
         </form>
